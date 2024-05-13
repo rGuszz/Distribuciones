@@ -28,7 +28,7 @@ def normal(media, sigma):
                              line=dict(color="#71B3EA"),
                              legendgroup="Funcion",
                              name="Función de densidad"))
-    fig.update_layout(template=None, dragmode = "pan")
+    fig.update_layout(template=None, dragmode = "pan", autosize=False, width=500, height=500)
     if media == 0 and sigma == 1:
         fig.update_layout(xaxis=dict(zeroline=True, zerolinecolor='black'), yaxis=dict(zeroline=True, zerolinecolor='black'))
         fig.update_xaxes(range=[-4,4])
