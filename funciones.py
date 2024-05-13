@@ -33,11 +33,11 @@ def normal(media, sigma):
     if media == 0 and sigma == 1:
         fig.update_layout(xaxis=dict(zeroline=True, zerolinecolor='black'), yaxis=dict(zeroline=True, zerolinecolor='black'))
         fig.update_xaxes(range=[-4,4])
-        return st.plotly_chart(fig, config=rueda, use_container_width=True)
+        return st.plotly_chart(fig, config=rueda)
     else: 
         fig.update_layout(xaxis=dict(zeroline=True, zerolinecolor='black'), yaxis=dict(zeroline=True, zerolinecolor='black'))
         fig.update_xaxes(range=[media-4,media+4])   
-        return st.plotly_chart(fig, config=rueda, use_container_width=True)
+        return st.plotly_chart(fig, config=rueda)
     
 def exponencial(lambdaa):
     x = np.linspace(0,2,1000)
