@@ -15,7 +15,7 @@ def normal(media, sigma):
                    legendgroup="Funcion",
                    showlegend=False,
                    name="Función de densidad")
-    fig = go.Figure(data=graf, use_container_widht=True)
+    fig = go.Figure(data=graf, use_container_width=True)
     rueda = dict({"scrollZoom": True})
     fig.add_trace(go.Scatter(x=[-10000000000000,media-1000],
                              y=[0,0], mode="lines",
