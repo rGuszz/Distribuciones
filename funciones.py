@@ -34,8 +34,6 @@ def normal(media, sigma):
         fig.update_xaxes(range=[-4,4])
         return st.plotly_chart(fig, config=rueda)
     else: 
-        int_1 = stats.norm.ppf(0.01, media, sigma)
-        int_2 = stats.norm.ppf(1-0.01, media, sigma)
         fig.update_layout(xaxis=dict(zeroline=True, zerolinecolor='black'), yaxis=dict(zeroline=True, zerolinecolor='black'))
         fig.update_xaxes(range=[media-4,media+4])   
         return st.plotly_chart(fig, config=rueda)
