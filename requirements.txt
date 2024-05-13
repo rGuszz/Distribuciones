@@ -1,6 +1,6 @@
-matplotlib.pyplot
+matplotlib
 pandas
 numpy
 streamlit
-plotly.graph_objs
-scipy.stats
+plotly
+scipy
