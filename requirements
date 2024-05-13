@@ -1,0 +1,6 @@
+matplotlib.pyplot
+pandas
+numpy
+streamlit
+plotly.graph_objs
+scipy.stats
