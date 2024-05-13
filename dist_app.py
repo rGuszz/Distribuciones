@@ -12,7 +12,7 @@ with t:
 
     st.write(f"Si X es la varibale aleatoria tal que $X$ ~ $N({media},{sigma})$")
     st.latex("\usepackage{mathbb}")
-    st.latex("Parámetros: $\mu \in \mathbb{R}, \sigma > 0$")
+    st.latex("Parámetros: $\mu \in \R, \sigma > 0$")
     st.write(f"La esperanza es $E(X) = {media}$")
     st.write(f"La varianza es $Var(X) = {sigma}$")
 
