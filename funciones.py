@@ -16,7 +16,7 @@ def normal(media, sigma):
                    showlegend=False,
                    name="Función de densidad")
     fig = go.Figure(data=graf)
-    rueda = dict({"scrollZoom": True})
+    rueda = dict({"scrollZoom": False})
     fig.add_trace(go.Scatter(x=[-10000000000000,media-1000],
                              y=[0,0], mode="lines",
                              line=dict(color="#71B3EA"),
