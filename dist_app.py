@@ -13,8 +13,8 @@ with t:
     fc.normal(media,sigma)
 
     st.write(f"Si X es la varibale aleatoria tal que $X$ ~ $N({media},{sigma})$")
-    st.write(f"La esperanza es $E(X) = {media}$")
-    st.write(f"La varianza es $Var(X) = {sigma}$")
+    st.write(f"$\large Esperanza:$ $\E(X) = {media}$")
+    st.write(f"$\large Varianza:$ $Var(X) = {sigma}$")
 
  
     
