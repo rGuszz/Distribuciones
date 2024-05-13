@@ -12,7 +12,7 @@ with t:
     st.write("Gráfica de la función de distribución")
     fc.normal(media,sigma)
 
-    st.write(f"$\Large Si\, X\, es\, la\, varibale\, aleatoria\, tal\, que\,$ $X$ ~ $N({media},{sigma})$")
+    st.subtitle(f"Si $X$ es la variable aleatoria tal que $X$ ~ $N({media},{sigma})$")
     st.write(f"$\large Esperanza:$ $𝔼(X) = {media}$")
     st.write(f"$\large Varianza:$ $Var(X) = {sigma}$")
 
