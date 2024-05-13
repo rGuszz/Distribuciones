@@ -10,7 +10,7 @@ with t:
     st.write("Gráfica de la función de distribución")
     fc.normal(media,sigma)
 
-    st.write(f"La esperanza de la normal es $\mathbb{E} (X) = {media}$")
+    st.write(f"La esperanza de la normal es $E(X) = {media}$")
 
  
     
