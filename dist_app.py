@@ -11,6 +11,7 @@ with t:
     fc.normal(media,sigma)
 
     st.write(f"La esperanza de la normal es $E(X) = {media}$")
+    st.write(f"La varianza de la normal es $Var(X) = {sigma}$")
 
  
     
