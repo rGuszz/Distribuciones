@@ -89,7 +89,8 @@ def exponencial(lambdaa, valor, color):
                              line=dict(color=color),
                              legendgroup="Funcion",
                              name="Función de densidad"),
-                             showlegend=False)
+                             showlegend=False))
+    
     fig.update_layout(template=None, dragmode = "pan")
     fig.update_layout(autosize=False,
                       width=800,
