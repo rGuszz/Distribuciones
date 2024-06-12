@@ -32,12 +32,14 @@ def normal(media, sigma, valor, color):
                              mode="lines",
                              line=dict(color=color),
                              legendgroup="Funcion",
+                             showlegend=False,
                              name="Función de densidad",
                              showlegend=False))
     fig.add_trace(go.Scatter(x=[media+1000,10000000000000],
                              y=[0,0], mode="lines",
                              line=dict(color=color),
                              legendgroup="Funcion",
+                             showlegend=False,
                              name="Función de densidad"))
     fig.update_layout(template=None, dragmode = "pan")
     fig.update_layout(autosize=False,
@@ -85,6 +87,7 @@ def exponencial(lambdaa, valor, color):
                              y=[0,0], mode="lines",
                              line=dict(color=color),
                              legendgroup="Funcion",
+                             showlegend=False,
                              name="Función de densidad"))
     fig.update_layout(template=None, dragmode = "pan")
     fig.update_layout(autosize=False,
