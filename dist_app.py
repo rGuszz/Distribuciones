@@ -11,7 +11,7 @@ col1, col2 = st.columns(2)
 with titulo:
     st.header("Distribuciones de probabilidad")
     distribu = st.selectbox("Selecciona la distribucion de tu elección",
-                            options=["Normal", "Exponencial"])
+                            options=["Normal", "Exponencial", "Gamma"])
     st.subheader(distribu)
     
 with colu:    
