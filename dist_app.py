@@ -110,6 +110,5 @@ with colu:
             
         elif distribu == "Gamma":
             st.latex("\Large Gráfica")
-            color_chi = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_chi")
             color_gamma = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_gamma")
             fc.gamma(shape, scale, valor_gamma, color_gamma)
