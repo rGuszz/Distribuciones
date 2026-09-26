@@ -65,29 +65,35 @@ with colu:
             st.latex(fr'''
                     F_X({valor_exp}) = P(X \leq {valor_exp}) = {cdf}
                     ''')
-            elif distribu == "Chi-cuadrada":
+        elif distribu == "Gamma":
             st.latex("\Large Parámetros")
-            df = st.number_input("Introduce los grados de libertad (df)",
-                                 value=3,
-                                 min_value=1,
-                                 step=1)
-            valor_chi = st.number_input("Introduce el valor para calcular la función de distribución",
-                                        value=5.00000,
-                                        step=0.10000,
-                                        format="%f")
-            cdf_chi = stats.chi2.cdf(valor_chi, df=df)
-            st.latex(fr"X \sim \chi^2({df})")
+            shape = st.number_input("Introduce el parámetro de forma (shape / alfa)",
+                                    value=2.0,
+                                    min_value=0.01,
+                                    step=0.1)
+            scale = st.number_input("Introduce el parámetro de escala (scale / beta)",
+                                    value=1.0,
+                                    min_value=0.01,
+                                    step=0.1)
+            valor_gamma = st.number_input("Introduce el valor para calcular la función de distribución",
+                                          value=5.00000,
+                                          step=0.10000,
+                                          format="%f")
+            
+            cdf_gamma = stats.gamma.cdf(valor_gamma, a=shape, scale=scale)
+            
+            st.latex(fr"X \sim \Gamma(\alpha={shape}, \beta={scale})")
             st.latex(r'''
-                     \large{f_X(x) = \frac{1}{2^{\frac{k}{2}}\Gamma(\frac{k}{2})} x^{\frac{k}{2}-1} e^{-\frac{x}{2}}}
+                     \large{f_X(x) = \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-\frac{x}{\beta}}}
                      ''')
             st.latex(fr'''
-                    E(X) = {df}
+                    E(X) = {shape * scale}
                     ''')
             st.latex(fr'''
-                    Var(X) = {2*df}
+                    Var(X) = {shape * (scale**2)}
                     ''')
             st.latex(fr'''
-                    F_X({valor_chi}) = P(X \leq {valor_chi}) = {cdf_chi}
+                    F_X({valor_gamma}) = P(X \leq {valor_gamma}) = {cdf_gamma}
                     ''')
             
 
@@ -102,7 +108,8 @@ with colu:
             color_exp = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_exp")
             fc.exponencial(lambdaa, valor_exp, color_exp)
             
-        elif distribu == "Chi-cuadrada":
+        elif distribu == "Gamma":
             st.latex("\Large Gráfica")
             color_chi = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_chi")
-            fc.chi_cuadrada(df, valor_chi, color_chi)
+            color_gamma = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_gamma")
+            fc.gamma(shape, scale, valor_gamma, color_gamma)
