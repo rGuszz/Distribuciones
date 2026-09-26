@@ -102,4 +102,40 @@ def exponencial(lambdaa, valor, color):
     fig.update_xaxes(range=[0,v])
     return st.plotly_chart(fig, config=rueda)
 
-
+def gamma_dist(shape, scale, valor, color):
+    # shape (alfa) y scale (beta o tasa inversa)
+    v_max = stats.gamma.ppf(0.99999, a=shape, scale=scale)
+    x_vals = np.linspace(0.000001, v_max, 100000)
+    x_vals_2 = np.linspace(0.000001, valor, 100000)
+    
+    y = stats.gamma.pdf(x_vals, a=shape, scale=scale)
+    y_2 = stats.gamma.pdf(x_vals_2, a=shape, scale=scale)
+    
+    graf = go.Scatter(x=x_vals,
+                       y=y,
+                       mode="lines",
+                       line=dict(color=color),
+                       legendgroup="Funcion",
+                       showlegend=False,
+                       name="Función de densidad")
+                       
+    graf_2 = go.Scatter(x=x_vals_2,
+                        y=y_2,
+                        mode="lines",
+                        fill="tozeroy",
+                        line=dict(color=color),
+                        legendgroup="Funcion",
+                        showlegend=False,
+                        name="Función de densidad")
+                        
+    fig = go.Figure(data=[graf, graf_2])
+    
+    fig.update_layout(template=None, dragmode="pan")
+    fig.update_layout(autosize=False, width=800, height=600)
+    rueda = dict({"scrollZoom": True})
+    
+    fig.update_layout(xaxis=dict(zeroline=True, zerolinecolor='black'),
+                      yaxis=dict(zeroline=True, zerolinecolor='black'))
+    fig.update_xaxes(range=[0, v_max])
+    
+    return st.plotly_chart(fig, config=rueda)

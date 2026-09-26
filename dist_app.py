@@ -65,14 +65,44 @@ with colu:
             st.latex(fr'''
                     F_X({valor_exp}) = P(X \leq {valor_exp}) = {cdf}
                     ''')
+            elif distribu == "Chi-cuadrada":
+            st.latex("\Large Parámetros")
+            df = st.number_input("Introduce los grados de libertad (df)",
+                                 value=3,
+                                 min_value=1,
+                                 step=1)
+            valor_chi = st.number_input("Introduce el valor para calcular la función de distribución",
+                                        value=5.00000,
+                                        step=0.10000,
+                                        format="%f")
+            cdf_chi = stats.chi2.cdf(valor_chi, df=df)
+            st.latex(fr"X \sim \chi^2({df})")
+            st.latex(r'''
+                     \large{f_X(x) = \frac{1}{2^{\frac{k}{2}}\Gamma(\frac{k}{2})} x^{\frac{k}{2}-1} e^{-\frac{x}{2}}}
+                     ''')
+            st.latex(fr'''
+                    E(X) = {df}
+                    ''')
+            st.latex(fr'''
+                    Var(X) = {2*df}
+                    ''')
+            st.latex(fr'''
+                    F_X({valor_chi}) = P(X \leq {valor_chi}) = {cdf_chi}
+                    ''')
             
 
     with col1:
         if distribu == "Normal":
             st.latex("\Large Gráfica")
-            color_norm = st.color_picker("Elige el color de la gráfica", "#00f900")
-            fc.normal(media,sigma,valor,color_norm)
-        if distribu == "Exponencial":
+            color_norm = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_norm")
+            fc.normal(media, sigma, valor, color_norm)
+            
+        elif distribu == "Exponencial":
             st.latex("\Large Gráfica")
-            color_exp = st.color_picker("Elige el color de la gráfica", "#00f900")
-            fc.exponencial(lambdaa,valor_exp,color_exp)
+            color_exp = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_exp")
+            fc.exponencial(lambdaa, valor_exp, color_exp)
+            
+        elif distribu == "Chi-cuadrada":
+            st.latex("\Large Gráfica")
+            color_chi = st.color_picker("Elige el color de la gráfica", "#00f900", key="color_chi")
+            fc.chi_cuadrada(df, valor_chi, color_chi)
