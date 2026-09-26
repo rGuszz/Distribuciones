@@ -102,7 +102,7 @@ def exponencial(lambdaa, valor, color):
     fig.update_xaxes(range=[0,v])
     return st.plotly_chart(fig, config=rueda)
 
-def gamma_dist(shape, scale, valor, color):
+def gamma(shape, scale, valor, color):
     # shape (alfa) y scale (beta o tasa inversa)
     v_max = stats.gamma.ppf(0.99999, a=shape, scale=scale)
     x_vals = np.linspace(0.000001, v_max, 100000)
